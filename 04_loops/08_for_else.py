@@ -1,0 +1,7 @@
+staff=[("Amit",16),("Zara",17),("Raj",15)]
+for name, age in staff:
+    if age<=18:
+        print(F"{name} is eligible to manage the staff")
+        break
+else:
+    print("No one is eligible to manage the staff")
