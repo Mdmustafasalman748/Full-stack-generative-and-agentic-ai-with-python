@@ -1,9 +1,11 @@
+import os
 from dotenv import load_dotenv
 from openai import OpenAI
 load_dotenv()
 client = OpenAI(
-api_key="GEMINI_API_KEY",
-base_url="https://generativelanguage.googleapis.com/v1beta/"
+    api_key=os.getenv("GEMINI_API_KEY"),
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
+
 response = client.chat.completions.create(model="gemini-3.5-flash", messages=[{"role": "user", "content": "Hey, I am MS! Nice to meet you. Who are you?"}])
 print(response.choices[0].message.content)
