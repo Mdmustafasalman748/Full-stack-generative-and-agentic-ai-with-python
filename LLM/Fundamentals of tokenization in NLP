@@ -1,0 +1,16 @@
+A=1
+B=2
+C=3
+D=4
+E=5 
+
+If we give 123 -> [  ] -> It will automatically predict next as 4
+If we give 1234 then next as 5
+
+To see how tokens work, visit this website: Tiktoenizer
+Type: Hey there! My name is MS
+The numbers will be send to the transformer, and the transformer will predict the next token
+At initial: 123 then 1234 then 12345
+
+** Tokennization: Converting the user input to a set of numbers understandable by the LLM is known as Tokenization.
+Example: Hey there! -> Gets converted to number then sended to the transformer -> it predicts next token then converted it back to human language (de-tokenize)

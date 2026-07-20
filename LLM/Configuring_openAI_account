@@ -1,0 +1,16 @@
+Visit platform: openai.com
+Open Dashboard
+Open API keys
+Click on Create new secret key
+Give any name then click on create
+Copy the key 
+
+#Invoke OpenAI APIs with python
+Open terminal and type: pip install openai
+Then type: pip freeze> requirements.txt
+Create a new folder: hello_world
+Create a main.py file
+Create .env file
+And write this in that file:
+Code: OPENAI_API_KEY="Paste the copied key here"
+

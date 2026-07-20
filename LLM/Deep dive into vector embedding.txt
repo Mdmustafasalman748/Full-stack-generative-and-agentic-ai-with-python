@@ -1,0 +1,15 @@
+The (dog) ate (cat) -> give semantic meaning to tokens
+The (mobile)
+Paris, effel tower, India, India gate
+
+**Vector embeddings are numerical representations of data points, including text, images, and other data types, that capture their meaning and relationship
+
+To see real vector rmbrdding  visit: projector.tensorflow.org
+
+Role of positional encoding in transformer:
+    Dog ate cat not same as cat ate dog
+    
+    Step1: Tokenization
+    step2: Vector Embedding
+    Step3 :Positional Encoding
+    step4: Self attention

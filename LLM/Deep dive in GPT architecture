@@ -1,0 +1,11 @@
+This is how LLM works
+
+User (input tokens) -----> LLM -----> (output tokens) Hey there! How are you?
+
+GPT - Genrative pre-trained transformer 
+To test how it generate based on given instructions:
+Open chat gpt and type: From now on call me MS
+Then: Who am I?
+
+** It will always generate things (it will not search)
+

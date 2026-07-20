@@ -1,0 +1,11 @@
+Google Translate:
+Sequence input ---> Transformer ---> Output Sequence
+
+CHAT GPT:
+Input token ---> Transformer ---> Predict the next token
+Hey there! -----           ----- I
+Hey there! I ---           ----- am
+Hey there! I am -          ----- good
+Hey there! I am good       ----- <END> 
+
+It predicts the next token and repeats the process

@@ -1,0 +1,7 @@
+#Creating and setting up google gemini account
+Search gemini studio : aistudio.google.com
+Click: Get API Key
+Create API key then copy
+Search AI Projects
+In terminal: pip install google-gemini
+Create another file: gemini_hello.py
