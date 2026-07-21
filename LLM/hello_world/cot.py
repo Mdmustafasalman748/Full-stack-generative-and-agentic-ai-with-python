@@ -45,4 +45,3 @@ response=client.chat.completions.create(
     ]
 )
 print(response.choices[0].message.content)
-#Few shot prompting: The model is provided wiht a few examples before asking it to generate a response.
