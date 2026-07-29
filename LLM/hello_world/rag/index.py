@@ -28,7 +28,7 @@ embeddings_model=OpenAIEmbeddings(
 vector_store=QdrantVectorStore.from_documents(
     documents=chunks,
     embedding=embeddings_model,
-    qdrant_url="http://localhost:6333",
+    url="http://localhost:6333",
     collection_name="learning_rag"
 )
 
