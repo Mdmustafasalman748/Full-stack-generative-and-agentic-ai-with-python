@@ -18,6 +18,6 @@ def chat(
 def get_result(
     job_id:str=Query(...,description="Job_ID")
 ):
-    job=queue.fetch_job(job_id=job_id)
-    result=job.return_value
-    result{"result" : result}
+    job = queue.fetch_job(job_id=job_id)
+    result = job.return_value
+    return {"result": result}
