@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain_qdrant import QdrantVectorStore
-
+import sys
 load_dotenv()
 openai_client=OpenAI()
 #Vector embeddings  
@@ -40,3 +40,4 @@ Context:
     )
     print(f"{response.choices[0].message.content}")
     return response.choices[0].message.content
+print(sys.executable)
