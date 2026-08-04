@@ -21,6 +21,8 @@ graph_builder.add_edge("chatbot","samplenode")
 graph_builder.add_edge("samplenode",END)
 graph=graph_builder.compile()
 
+updated_state=graph.invoke(State({"messages":["Hi, My name is MS"]}))
+print("\n\n Updated_state", updated_state)
 #state={"messages":["Hey There"]}
 #node runs: chatbot(state:["Hey There"]) -> ["Hi, This is a message from chatbot node"]
 #state={"messages":["Hey There","Hi, This is a message from chatbot node"]}
