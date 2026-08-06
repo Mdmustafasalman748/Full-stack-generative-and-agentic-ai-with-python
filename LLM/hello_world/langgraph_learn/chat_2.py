@@ -38,7 +38,7 @@ def chatbot_gemini(state:State):
     )
     State["llm_output"] = response.choices[0].message.content
     return state
-    
+
     def endnode(state:State):
         print("\n\n Inside endnode",state)
         return state
@@ -57,4 +57,4 @@ def chatbot_gemini(state:State):
     graph=graph_builder.compile()
 
     updated_state=graph.invoke(State({"user_query":"Hey, what is 2+2"}))
-    print("\n\n Updated_state", updated_state)  
+    print("\n\n Updated_state", updated_state)      
