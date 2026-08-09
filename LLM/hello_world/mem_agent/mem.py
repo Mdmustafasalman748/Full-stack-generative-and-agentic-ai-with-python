@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 from mem0 import Memory
 import os 
+import json
 
 load_dotenv()
 client = OpenAI()
@@ -27,10 +28,21 @@ config={
 mem_client=Memory.from_config(config)
 while(True):
     user_query=input(">")
+    search_memory=mem_client.search(query=user_query,filters={"user_id": "MS"}
+)
+    memory_about_user=search_memory
+    memories=[
+        f"ID: {mem.get("id")}\n Memory:{mem.get("memory")}" for mem in search_memory.get("results")
+    ]
+    SYSTEM_PROMPT=f"""
+    Here is the context about the user:
+    {json.dumps(memories)}
+    """
     response=client.chat.completions.create(
         model="gpt-4.1-mini",
         messages=[
-            {"role":"user","content":user_query}
+            {"role":"user","content":user_query},
+            {"role":"system","content":SYSTEM_PROMPT}
         ]
     )
     ai_response=response.choices[0].message.content
