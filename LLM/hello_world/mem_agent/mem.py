@@ -17,6 +17,14 @@ config={
         "provider":"openai",
         "config":{"api_key": OPENAI_API_KEY, "model":"gpt-4.1"}
     },
+    "graph_store":{
+        "provider":"neo4j",
+        "config":{
+            "url": os.getenv("NEO_CONNECTION_URL"),
+            "username": os.getenv("NEO_USERNAME"),
+            "password": os.getenv("NEO_PASSWORD")
+        }
+    },
     "vector_store":{
         "provider":"qdrant",
         "config":{
