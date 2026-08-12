@@ -1,4 +1,9 @@
 import speech_recognition as sr
+from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
+cleint = OpenAI()
 def main():
     r = sr.Recognizer() #Speech to text
     with sr.Microphone as source: #Mic access
@@ -15,6 +20,12 @@ def main():
          audio=r.listen(source) #Listen to user
          print("Processing audio...(STT)") 
          stt=r.recognize_google(audio) #Convert audio to text
+         print("You said: ",stt)
          messages.append({"role":"user","content":stt})
+         respone=cleint.chat.completions.create(
+            model="gpt-4.1-mini",
+            messages=messages
+         )
+         print("AI Response: ",respone.choices[0].message.content)
 main()  
         
