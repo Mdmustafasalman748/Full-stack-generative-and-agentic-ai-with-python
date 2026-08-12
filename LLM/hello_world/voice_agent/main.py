@@ -1,12 +1,26 @@
+import asyncio
+from openai.helpers import LocalAudioPlayer
+from openai import AsyncOpenAI 
 import speech_recognition as sr
 from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-cleint = OpenAI()
-def main():
+client = OpenAI()
+async_client = AsyncOpenAI()
+async def tts(speech:str):
+    async with async_client.audio.speech.with_streaming_response.create(
+        model="gpt-4o-mini-tts",
+        voice="coral",
+        input=speech,
+        instructions="Always speack in cheerful tone with full of delight and happy",
+        response_format="pcm",
+    )as response:
+        await LocalAudioPlayer().play(response)
+async def main():
+    
     r = sr.Recognizer() #Speech to text
-    with sr.Microphone as source: #Mic access
+    with sr.Microphone() as source: #Mic access
         r.adjust_for_ambient_noise(source) #Adjust for noise
         r.pause_threshold=2 
         SYSTEM_PROMPT=f"""
@@ -22,10 +36,11 @@ def main():
          stt=r.recognize_google(audio) #Convert audio to text
          print("You said: ",stt)
          messages.append({"role":"user","content":stt})
-         respone=cleint.chat.completions.create(
+         respone=client.chat.completions.create(
             model="gpt-4.1-mini",
             messages=messages
          )
          print("AI Response: ",respone.choices[0].message.content)
-main()  
-        
+         await tts(speech=respone.choices[0].message.content) 
+if __name__ == "__main__":
+    asyncio.run(main())
